@@ -1,0 +1,10 @@
+bandit
+black
+build
+coverage
+pylint
+pytest
+pytest-mock
+rope
+tox
+wheel
