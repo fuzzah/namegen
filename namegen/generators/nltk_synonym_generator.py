@@ -1,3 +1,5 @@
+from typing import List
+
 import nltk
 from nltk.corpus import wordnet
 
@@ -14,9 +16,12 @@ class NLTKSynonymGenerator(BaseGenerator):
         nltk.download("wordnet")
         nltk.download("omw-1.4")
 
-    def create_one_name(self) -> str:
-        n = min(2, len(self.keywords))
-        words = random.sample(self.keywords, n)
+    def create_one_name(self, components: int) -> str:
+        n = min(components, len(self.keywords))
+        words: List[str] = []
+        while len(words) < components:
+            words.extend(random.sample(self.keywords, n))
+
         parts = []
         random.shuffle(words)
         for word in words:

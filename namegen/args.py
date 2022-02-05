@@ -35,6 +35,13 @@ def create_argument_parser():
         type=int,
         default=10,
     )
+    parser.add_argument(
+        "-m",
+        "--components",
+        help="desired number of name parts (default: 2)",
+        type=int,
+        default=2,
+    )
     parser.add_argument("keyword", help="keyword(s) to use", nargs="+")
 
     return parser
@@ -43,3 +50,6 @@ def create_argument_parser():
 def exit_on_bad_args(args: Namespace):
     if args.count < 1:
         sys.exit("ERROR in --count: invalid value specified")
+
+    if args.components < 1:
+        sys.exit("ERROR in --components: invalid value specified")

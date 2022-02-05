@@ -12,8 +12,11 @@ def main(argv=None):
     generator.add_words(args.keyword)
 
     print("Keywords:", ", ".join(args.keyword), file=sys.stderr)
-    print(f"Will generate up to {args.count} names\n", file=sys.stderr)
-    names = generator.create_names(args.count)
+    print(
+        f"Will generate up to {args.count} names (max components: {args.components})\n",
+        file=sys.stderr,
+    )
+    names = generator.create_names(count=args.count, components=args.components)
     print("\n".join(names))
 
     return 0
