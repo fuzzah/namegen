@@ -12,7 +12,7 @@ def main(argv=None):
     generator.add_words(args.keyword)
 
     print("Keywords:", ", ".join(args.keyword), file=sys.stderr)
-    print(f"Will try to generate {args.count} names\n", file=sys.stderr)
+    print(f"Will generate up to {args.count} names\n", file=sys.stderr)
     names = generator.create_names(args.count)
     print("\n".join(names))
 

@@ -24,9 +24,10 @@ class NLTKSynonymGenerator(BaseGenerator):
             if not syn_sets:
                 continue
             syn_set = random.choice(syn_sets)
+
             max_tries = 10
             for _ in range(max_tries):
-                part = random.choice(syn_set.lemmas()).name()
+                part = random.choice(syn_set.lemmas()).name().lower()
                 if "_" not in part:
                     break
             if "_" in part:
